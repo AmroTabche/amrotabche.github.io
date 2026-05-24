@@ -55,7 +55,9 @@
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const offset = 80;
+      // Larger offset when jumping to a case study, since the project-nav pill bar
+      // is also sticky beneath the top nav (~58px + ~50px = ~108px reserved).
+      const offset = target.classList.contains('case') ? 130 : 80;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
