@@ -191,6 +191,20 @@
         </p>
       </div>
 
+      <!-- =========== PROJECT NAVIGATOR =========== -->
+      <nav class="proj-nav" id="proj-nav" aria-label="Project navigator">
+        <span class="proj-nav__label mono">Jump to →</span>
+        <div class="proj-nav__pills">
+          <a href="#case-turret"     class="proj-nav__pill"><span class="mono">01</span>Turret 1</a>
+          <a href="#case-honeywell"  class="proj-nav__pill"><span class="mono">02</span>Honeywell</a>
+          <a href="#case-comtest"    class="proj-nav__pill"><span class="mono">03</span>Comtest</a>
+          <a href="#case-poodini"    class="proj-nav__pill"><span class="mono">04</span>Poodini</a>
+          <a href="#case-pendulum"   class="proj-nav__pill"><span class="mono">05</span>Pendulum</a>
+          <a href="#case-gear"       class="proj-nav__pill"><span class="mono">06</span>Gear Reducer</a>
+          <a href="#case-composites" class="proj-nav__pill"><span class="mono">07</span>Composites</a>
+        </div>
+      </nav>
+
       <!-- ============ CASE 01: TURRET (CAPSTONE) — ABSTRACT ONLY ============ -->
       <article class="case" id="case-turret">
         <header class="case__head">
@@ -1168,6 +1182,30 @@
     </section>
   </main>
 
+  <!-- =================== LIGHTBOX =================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close image">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <path d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Previous image">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <path d="M14 4L6 11l8 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Next image">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <path d="M8 4l8 7-8 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <figure class="lightbox__stage">
+      <img id="lightbox-img" alt="" />
+      <figcaption id="lightbox-caption" class="lightbox__caption"></figcaption>
+    </figure>
+    <div class="lightbox__counter mono" id="lightbox-counter"></div>
+  </div>
+
   <!-- =================== FOOTER =================== -->
   <footer class="footer">
     <div class="footer__row">
@@ -1177,7 +1215,7 @@
       </div>
       <div class="footer__cols">
         <div>
-          <h5 class="mono">Site</h5>
+          <h5 class="mono">Site Map</h5>
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#capabilities">Capabilities</a>

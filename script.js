@@ -193,6 +193,110 @@
   onScroll();
 })();
 
+// ---------- PROJECT NAVIGATOR ACTIVE PILL ----------
+(function projNav() {
+  const pills = document.querySelectorAll('.proj-nav__pill');
+  if (!pills.length) return;
+  const cases = Array.from(pills)
+    .map(p => document.querySelector(p.getAttribute('href')))
+    .filter(Boolean);
+
+  const onScroll = () => {
+    const y = window.scrollY + 160;
+    let activeIdx = -1;
+    cases.forEach((c, i) => { if (c.offsetTop <= y) activeIdx = i; });
+    pills.forEach((p, i) => p.classList.toggle('is-active', i === activeIdx));
+
+    // Auto-scroll the pill into view inside the pills container
+    if (activeIdx >= 0) {
+      const activePill = pills[activeIdx];
+      const wrap = activePill.parentElement;
+      if (wrap && wrap.scrollWidth > wrap.clientWidth) {
+        const target = activePill.offsetLeft - wrap.clientWidth / 2 + activePill.clientWidth / 2;
+        wrap.scrollTo({ left: target, behavior: 'smooth' });
+      }
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// ---------- LIGHTBOX (click-to-enlarge images) ----------
+(function lightbox() {
+  const box = document.getElementById('lightbox');
+  if (!box) return;
+  const imgEl = document.getElementById('lightbox-img');
+  const captionEl = document.getElementById('lightbox-caption');
+  const counterEl = document.getElementById('lightbox-counter');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  // All clickable images on the page
+  const selector = '.case__hero img, .case__fig img, .hero__image, .other-card__img img';
+  const allImages = Array.from(document.querySelectorAll(selector));
+  let currentIdx = 0;
+
+  const showAt = (idx) => {
+    currentIdx = (idx + allImages.length) % allImages.length;
+    const img = allImages[currentIdx];
+    imgEl.src = img.src;
+    imgEl.alt = img.alt || '';
+    // Find a caption: case__hero-cap text or case__fig figcaption
+    let caption = '';
+    const fig = img.closest('figure');
+    if (fig) {
+      const fc = fig.querySelector('figcaption');
+      if (fc) caption = fc.textContent.trim();
+    } else {
+      const heroCap = img.closest('.hero__image-wrap')?.querySelector('.hero__image-caption');
+      const caseCap = img.closest('.case__hero')?.querySelector('.case__hero-cap');
+      if (heroCap) caption = heroCap.textContent.trim();
+      else if (caseCap) caption = caseCap.textContent.trim();
+    }
+    captionEl.textContent = caption;
+    counterEl.textContent = `${currentIdx + 1} / ${allImages.length}`;
+  };
+
+  const open = (idx) => {
+    showAt(idx);
+    box.classList.add('is-open');
+    box.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    box.classList.remove('is-open');
+    box.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  // Wire up image clicks
+  allImages.forEach((img, idx) => {
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(idx);
+    });
+  });
+
+  // Controls
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => showAt(currentIdx - 1));
+  nextBtn.addEventListener('click', () => showAt(currentIdx + 1));
+
+  // Click backdrop closes
+  box.addEventListener('click', (e) => {
+    if (e.target === box || e.target.classList.contains('lightbox__stage')) close();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') showAt(currentIdx - 1);
+    else if (e.key === 'ArrowRight') showAt(currentIdx + 1);
+  });
+})();
+
 // Add active style for the current section
 (function injectActiveStyle() {
   const style = document.createElement('style');
