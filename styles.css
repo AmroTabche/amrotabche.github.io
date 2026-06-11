@@ -12,7 +12,10 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.55;
+  /* 'hidden' creates a scroll container and breaks position:sticky;
+     'clip' clips overflow without breaking it (fallback first for old browsers) */
   overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1373,8 +1376,11 @@ section > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
   .contact__big { font-size: clamp(2.2rem, 11vw, 3.2rem); }
 }
 
-/* Prevent any horizontal overflow on any device */
+/* Prevent any horizontal overflow on any device.
+   'clip' (not 'hidden') so position:sticky keeps working;
+   the 'hidden' line is only a fallback for very old browsers. */
 html, body { overflow-x: hidden; max-width: 100vw; }
+html, body { overflow-x: clip; }
 img, svg, video { max-width: 100%; height: auto; }
 
 /* ============================================================

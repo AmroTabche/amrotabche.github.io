@@ -54,7 +54,13 @@
 
   const titleOf = (c) => {
     const t = c.querySelector('.case__title');
-    return t ? t.textContent.replace(/\s+/g, ' ').trim() : '';
+    if (!t) return '';
+    // <br/> contributes no whitespace to textContent, so convert it first
+    return t.innerHTML
+      .replace(/<br\s*\/?>/gi, ' ')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
   };
   const pad = (n) => String(n).padStart(2, '0');
 
