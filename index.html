@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Amro Tabche — Mechanical Engineer (BASc, University of Ottawa). Selected work in mechanical design, controls, composites, and building automation." />
   <title>Amro Tabche — Mechanical Engineer</title>
+
+  <!-- Favicon + browser chrome color -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d4a574'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='30' font-weight='600' fill='%231a0f04' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0d0d0e" />
+
+  <!-- Social sharing preview -->
+  <meta property="og:title" content="Amro Tabche — Mechanical Engineer" />
+  <meta property="og:description" content="Mechanical Engineer (BASc, University of Ottawa). Selected work in mechanical design, controls, composites, and building automation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amrotabche.github.io" />
+  <meta property="og:image" content="https://amrotabche.github.io/assets/turret/wing_iso.jpg" />
+
+  <!-- Apply saved theme before first paint (prevents flash) -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -25,6 +46,10 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">
+      <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.4" stroke="currentColor" stroke-width="1.5"/><path d="M12 2.5v2.4M12 19.1v2.4M21.5 12h-2.4M4.9 12H2.5M18.7 5.3l-1.7 1.7M7 17l-1.7 1.7M18.7 18.7L17 17M7 7L5.3 5.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    </button>
     <a href="mailto:amrotabche@gmail.com" class="nav__cta">
       <span>Get in touch</span>
       <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1205,6 +1230,11 @@
     </figure>
     <div class="lightbox__counter mono" id="lightbox-counter"></div>
   </div>
+
+  <!-- =================== BACK TO TOP =================== -->
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
   <!-- =================== FOOTER =================== -->
   <footer class="footer">

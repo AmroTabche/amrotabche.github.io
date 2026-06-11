@@ -46,6 +46,38 @@
   });
 })();
 
+// ---------- CASE STEPPERS (prev / next project) ----------
+// Built BEFORE smoothScroll so the generated anchors get smooth scrolling.
+(function caseSteppers() {
+  const cases = Array.from(document.querySelectorAll('.case'));
+  if (cases.length < 2) return;
+
+  const titleOf = (c) => {
+    const t = c.querySelector('.case__title');
+    return t ? t.textContent.replace(/\s+/g, ' ').trim() : '';
+  };
+  const pad = (n) => String(n).padStart(2, '0');
+
+  cases.forEach((c, i) => {
+    const prev = cases[(i - 1 + cases.length) % cases.length];
+    const next = cases[(i + 1) % cases.length];
+    const nav = document.createElement('nav');
+    nav.className = 'case-stepper';
+    nav.setAttribute('aria-label', 'Project pages');
+    nav.innerHTML =
+      `<a href="#${prev.id}" class="case-stepper__link case-stepper__link--prev">` +
+        `<span class="mono">← Previous project</span>` +
+        `<span class="case-stepper__title">${titleOf(prev)}</span>` +
+      `</a>` +
+      `<span class="case-stepper__count mono">${pad(i + 1)} / ${pad(cases.length)}</span>` +
+      `<a href="#${next.id}" class="case-stepper__link case-stepper__link--next">` +
+        `<span class="mono">Next project →</span>` +
+        `<span class="case-stepper__title">${titleOf(next)}</span>` +
+      `</a>`;
+    c.appendChild(nav);
+  });
+})();
+
 // ---------- SMOOTH SCROLL FOR ANCHORS ----------
 (function smoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -307,4 +339,37 @@
     .nav__links a.is-current::after { transform: scaleX(1); }
   `;
   document.head.appendChild(style);
+})();
+
+// ---------- THEME TOGGLE (light / dark) ----------
+(function themeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const meta = document.querySelector('meta[name="theme-color"]');
+
+  const apply = (t, persist) => {
+    document.documentElement.setAttribute('data-theme', t);
+    if (persist) localStorage.setItem('theme', t);
+    if (meta) meta.setAttribute('content', t === 'light' ? '#faf8f3' : '#0d0d0e');
+  };
+
+  // Sync meta color with whatever the head script chose on load (don't persist)
+  apply(document.documentElement.getAttribute('data-theme') || 'dark', false);
+
+  btn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    apply(cur === 'dark' ? 'light' : 'dark', true);
+  });
+})();
+
+// ---------- BACK TO TOP ----------
+(function toTop() {
+  const btn = document.getElementById('to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
