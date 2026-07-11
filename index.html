@@ -10,12 +10,36 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d4a574'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='30' font-weight='600' fill='%231a0f04' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E" />
   <meta name="theme-color" content="#0d0d0e" />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://amrotabche.github.io/" />
+
   <!-- Social sharing preview -->
   <meta property="og:title" content="Amro Tabche — Mechanical Engineer" />
   <meta property="og:description" content="Mechanical Engineer (BASc, University of Ottawa). Selected work in mechanical design, controls, composites, and building automation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://amrotabche.github.io" />
   <meta property="og:image" content="https://amrotabche.github.io/assets/turret/wing_iso.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Amro Tabche — Mechanical Engineer" />
+  <meta name="twitter:description" content="Mechanical Engineer (BASc, University of Ottawa). Selected work in mechanical design, controls, composites, and building automation." />
+  <meta name="twitter:image" content="https://amrotabche.github.io/assets/turret/wing_iso.jpg" />
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amro Tabche",
+    "jobTitle": "Mechanical Engineer",
+    "url": "https://amrotabche.github.io",
+    "email": "mailto:amrotabche@gmail.com",
+    "telephone": "+1-343-988-7403",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ottawa", "addressRegion": "ON", "addressCountry": "CA" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Ottawa" },
+    "knowsAbout": ["Mechanical Design", "SolidWorks", "FEA", "Building Automation", "BACnet", "Control Systems", "Composites", "Arduino"],
+    "sameAs": ["https://linkedin.com/in/amro-tabche"]
+  }
+  </script>
 
   <!-- Apply saved theme before first paint (prevents flash) -->
   <script>
@@ -32,6 +56,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <a href="#work" class="skip-link">Skip to content</a>
 
   <!-- =================== NAV =================== -->
   <header class="nav" id="nav">
@@ -629,7 +655,7 @@
         </header>
 
         <div class="case__hero">
-          <img src="assets/pendulum/physical.png" alt="Physical inverted pendulum apparatus on a wooden table" loading="lazy" />
+          <img src="assets/pendulum/physical.jpg" alt="Physical inverted pendulum apparatus on a wooden table" loading="lazy" />
           <div class="case__hero-cap">
             <span class="mono">FIG. A</span>
             <span>Physical apparatus — pendulum upright above a belt-driven carriage on a linear rail.</span>
@@ -705,7 +731,7 @@
             <figcaption><span class="mono">FIG. C</span> SolidWorks isometric — full apparatus with linear rail, carriage, motor, encoder, pendulum.</figcaption>
           </figure>
           <figure class="case__fig">
-            <img src="assets/pendulum/with_matlab.png" alt="Pendulum during tuning with MATLAB live response plot in background" loading="lazy" />
+            <img src="assets/pendulum/with_matlab.jpg" alt="Pendulum during tuning with MATLAB live response plot in background" loading="lazy" />
             <figcaption><span class="mono">FIG. D</span> Live tuning — pendulum + MATLAB live response plot in the background.</figcaption>
           </figure>
           <figure class="case__fig">
@@ -824,7 +850,7 @@
             <figcaption><span class="mono">FIG. F</span> Shaft 1 — Ø0.63 in × 5.87 in length.</figcaption>
           </figure>
           <figure class="case__fig">
-            <img src="assets/gear/life_calc.png" alt="Handwritten bearing-life calculation showing application factor, reliability, and life equations" loading="lazy" />
+            <img src="assets/gear/life_calc.jpg" alt="Handwritten bearing-life calculation showing application factor, reliability, and life equations" loading="lazy" />
             <figcaption><span class="mono">FIG. G</span> Bearing-life calculation — <code>L = K_a · K_r · (C/P)^p</code> · 8,960 hours.</figcaption>
           </figure>
         </div>
@@ -927,7 +953,7 @@
             <figcaption><span class="mono">FIG. D</span> Geometric model — nodes A–J, dimensioned envelope used for load-path analysis.</figcaption>
           </figure>
           <figure class="case__fig">
-            <img src="assets/composites/load_case.png" alt="Load case sketch with crushed faces highlighted" loading="lazy" />
+            <img src="assets/composites/load_case.jpg" alt="Load case sketch with crushed faces highlighted" loading="lazy" />
             <figcaption><span class="mono">FIG. E</span> Load case — push and back-force application, ground-contact nodes circled.</figcaption>
           </figure>
         </div>

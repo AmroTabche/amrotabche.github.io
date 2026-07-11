@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 — Amro Tabche</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23d4a574'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='30' font-weight='600' fill='%231a0f04' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #0d0d0e; --text: #f3f0ea; --text-2: #b6b3ad; --text-3: #76746f;
+      --accent: #d4a574; --on-accent: #1a0f04; --border: rgba(243, 240, 234, 0.16);
+    }
+    [data-theme="light"] {
+      --bg: #faf8f3; --text: #221f1a; --text-2: #58534a; --text-3: #8b8579;
+      --accent: #9e6832; --on-accent: #ffffff; --border: rgba(34, 31, 26, 0.2);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .wrap { max-width: 560px; text-align: center; }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    p { color: var(--text-2); margin-bottom: 2.2rem; line-height: 1.6; }
+    a.btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      background: var(--accent); color: var(--on-accent);
+      text-decoration: none; font-weight: 500;
+      border-radius: 40px;
+      transition: transform 200ms ease;
+    }
+    a.btn:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">Error 404 — Page not found</div>
+    <h1>This load path<br/>leads <em>nowhere.</em></h1>
+    <p>The page you're looking for doesn't exist or has moved. Head back to the portfolio and try from there.</p>
+    <a class="btn" href="/">
+      ← Back to the portfolio
+    </a>
+  </div>
+</body>
+</html>

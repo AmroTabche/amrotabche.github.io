@@ -167,6 +167,29 @@ code {
   color: var(--accent);
 }
 
+/* ---------- ACCESSIBILITY ---------- */
+.skip-link {
+  position: fixed;
+  top: -100px; left: 1rem;
+  z-index: 300;
+  padding: 0.7rem 1.2rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 200ms var(--ease);
+}
+.skip-link:focus { top: 1rem; }
+
+/* Visible keyboard focus without affecting mouse users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* ---------- SCROLL PROGRESS ---------- */
 .progress {
   position: fixed; top: 0; left: 0;
