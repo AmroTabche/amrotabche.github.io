@@ -323,14 +323,51 @@ button:focus-visible {
 }
 
 .hero__intro { max-width: 640px; }
-.hero__meta {
-  display: flex; align-items: center; gap: 0.7rem;
+
+/* Byline: avatar + greeting, the personal introduction */
+.hero__byline {
+  display: flex; align-items: center; gap: 1.1rem;
   margin-bottom: 2rem;
+  opacity: 0;
+  animation: byline-in 900ms var(--ease) 60ms forwards;
+}
+@keyframes byline-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero__avatar {
+  width: 78px; height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-strong);
+  box-shadow: 0 0 0 5px var(--accent-dim), 0 10px 28px rgba(0, 0, 0, 0.28);
+  flex-shrink: 0;
+  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease), border-color 420ms var(--ease);
+}
+.hero__avatar:hover {
+  transform: scale(1.07) rotate(-2deg);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 7px var(--accent-dim), 0 14px 34px rgba(0, 0, 0, 0.32);
+}
+.hero__meta {
+  display: flex; flex-direction: column; gap: 0.45rem;
   color: var(--text-3);
+}
+.hero__hello {
+  font-size: 0.82rem;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+.hero__meta-row {
+  display: flex; align-items: center; gap: 0.7rem;
 }
 .meta-line {
   width: 36px; height: 1px;
   background: var(--accent);
+}
+@media (max-width: 480px) {
+  .hero__avatar { width: 64px; height: 64px; }
+  .hero__byline { gap: 0.9rem; margin-bottom: 1.6rem; }
 }
 
 .hero__title {
